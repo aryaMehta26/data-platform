@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-platform-api
+  labels:
+    app: data-platform-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: data-platform-api
+  template:
+    metadata:
+      labels:
+        app: data-platform-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/your-org/data-platform-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-platform-api
+spec:
+  type: ClusterIP
+  selector:
+    app: data-platform-api
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
+      name: http
+

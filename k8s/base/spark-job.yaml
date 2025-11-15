@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: data-platform-batch-etl
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: spark-job
+          image: ghcr.io/your-org/data-platform-spark:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: INPUT_PATH
+              value: s3://your-bucket/raw/sample.csv
+            - name: OUTPUT_PATH
+              value: s3://your-bucket/curated/sample/
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+  backoffLimit: 1
+
