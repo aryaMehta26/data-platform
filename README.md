@@ -16,7 +16,7 @@
 
 Modern, production-grade data platform that orchestrates large-scale ETL, enforces data quality, exposes microservices, and ships with full observability and CI. Built with Python, Apache Airflow, PySpark, Docker, Kubernetes, and AWS-aligned deployment patterns.
 
-### 🎯 Performance Metrics
+### Performance Metrics
 
 | Metric | Achievement |
 |--------|-------------|
@@ -49,14 +49,14 @@ Modern, production-grade data platform that orchestrates large-scale ETL, enforc
 
 | Area | Tech | Highlights |
 |---|---|---|
-| Language | 🐍 Python 3.10+ | Type-friendly, batteries included |
-| Orchestration | 🪁 Apache Airflow 2.x | Scheduled ETL + DQ DAGs, retries, idempotency |
-| Compute | ⚡ Apache Spark 3.5 | Containerized jobs, scalable on K8s |
-| Services | 🚀 FastAPI | Health/ready endpoints, Prometheus metrics |
-| Platform | 🐳 Docker, ☸️ Kubernetes | Manifests with probes and resources |
-| Cloud | ☁️ AWS EKS (ready) | Swap image registry, add IAM roles for S3 |
-| Observability | 📈 Prometheus, 📊 Grafana | Pre-provisioned datasource, extendable |
-| CI/CD | 🤖 GitHub Actions | Tests + build for API/Spark images |
+| Language | Python 3.10+ | Type-friendly, batteries included |
+| Orchestration | Apache Airflow 2.x | Scheduled ETL + DQ DAGs, retries, idempotency |
+| Compute | Apache Spark 3.5 | Containerized jobs, scalable on K8s |
+| Services | FastAPI | Health/ready endpoints, Prometheus metrics |
+| Platform | Docker, Kubernetes | Manifests with probes and resources |
+| Cloud | AWS EKS (ready) | Swap image registry, add IAM roles for S3 |
+| Observability | Prometheus, Grafana | Pre-provisioned datasource, extendable |
+| CI/CD | GitHub Actions | Tests + build for API/Spark images |
 
 ### Architecture Overview
 - Orchestration: Airflow DAGs schedule batch ETL and quality checks
@@ -122,11 +122,11 @@ docker compose up -d --build
 Open: Airflow (http://localhost:8080), API (http://localhost:8000/docs), Prometheus (http://localhost:9090), Grafana (http://localhost:3000).
 
 ### Feature highlights
-- ⚙️ Orchestrated ETL: Extract → Transform → Load with Airflow DAGs and backfills
-- 🛡️ 50+ rules-ready DQ: Nulls, uniqueness, ranges, regex, row counts, temporal
-- 🔭 Observability-first: `/metrics` on API, Prometheus scrape, Grafana dashboards
-- 🧱 Reliable by default: Probes, resource limits, retries, idempotent task design
-- 🔄 CI built-in: Tests and image builds on every push/PR
+- Orchestrated ETL: Extract → Transform → Load with Airflow DAGs and backfills
+- 50+ rules-ready DQ: Nulls, uniqueness, ranges, regex, row counts, temporal
+- Observability-first: `/metrics` on API, Prometheus scrape, Grafana dashboards
+- Reliable by default: Probes, resource limits, retries, idempotent task design
+- CI built-in: Tests and image builds on every push/PR
 
 ### Resume snippet (copy/paste)
 "Built a distributed data platform with Python, Apache Airflow (2.x) and PySpark (3.5) on Kubernetes, processing 5TB+ daily data with autoscaling and 100+ concurrent jobs. Implemented a data quality framework (50+ validation rules) with real-time monitoring via Prometheus/Grafana, reducing anomalies by 85% and achieving 99.9% accuracy. Delivered fault-tolerant FastAPI microservices on AWS EKS with <100 ms p95 latency and 99.9% uptime. Automated CI/CD with GitHub Actions to build/test and deploy container images, cutting infra costs by ~40% through right-sizing and scaling policies."
