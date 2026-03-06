@@ -180,16 +180,6 @@ k8s/
 .github/workflows/
 ```
 
-This repository is ready to publish. Update image names and S3 paths to match your environment.
 
-### Publish this repo (quick)
-```bash
-# from this folder
-git init
-git add .
-git commit -m "Initial: data platform scaffold"
-git branch -M main
-git remote add origin <YOUR_EMPTY_GITHUB_REPO_URL>
-git push -u origin main
-```
+
 
